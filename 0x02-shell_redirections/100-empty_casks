@@ -1,2 +1,2 @@
 #!/bin/bash
-# Add your content here
+find -empty | rev |cut -d'/' -f1 | rev

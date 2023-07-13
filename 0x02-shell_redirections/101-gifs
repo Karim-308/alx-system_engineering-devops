@@ -1,2 +1,2 @@
 #!/bin/bash
-# Add your content here
+cut -c1 | paste -s | tr -d "[:blank:]"
