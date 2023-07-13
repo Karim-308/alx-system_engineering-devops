@@ -1,2 +1,2 @@
 #!/bin/bash
-# Add your content here
+sort | uniq -u
