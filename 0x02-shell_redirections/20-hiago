@@ -1,2 +1,2 @@
 #!/bin/bash
-# Add your content here
+tr -d 'c' | tr -d 'C'

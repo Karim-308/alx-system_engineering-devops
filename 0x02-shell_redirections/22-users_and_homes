@@ -1,2 +1,2 @@
 #!/bin/bash
-# Add your content here
+cut -d ':' -f 1,6 /etc/passwd | sort
