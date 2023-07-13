@@ -1,2 +1,3 @@
 #!/bin/bash
-# Add your content here
+sudo cat /etc/passwd | tail
+
