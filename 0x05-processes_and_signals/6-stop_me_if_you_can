@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Assuming the process ID (PID) of 4-to_infinity_and_beyond is stored in a file
 # named pidfile.txt. Adjust this if your setup is different.
 
