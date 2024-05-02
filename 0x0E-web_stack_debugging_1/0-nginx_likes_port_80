@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# Configure Nginx server to listen for port 80
-# Identify and resolve issues preventing Nginx from listening on port 80
-
-# Replace occurrences of port 8080 with port 80 in the Nginx configuration
+# Open the 80 port
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-
-# Restart the Nginx service to apply the changes
 service nginx restart
