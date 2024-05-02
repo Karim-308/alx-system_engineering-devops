@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Check if Nginx is listening on port 80
+if ! netstat -tuln | grep -q ":80"; then
+    echo "Nginx is not listening on port 80"
+    
+    # Update Nginx configuration to bind port 80 to all IPv4 addresses
+    sed -i 's/^ *listen [^;]*;$/    listen 80 default_server;/g' /etc/nginx/sites-enabled/default
+    echo "Updated Nginx configuration to listen on port 80"
+    
+    # Restart Nginx
+    systemctl restart nginx
+fi
+
+# Check if another web server like Apache is active and using port 80
+if netstat -tuln | grep -q ":80"; then
+    echo "Another web server is active and using port 80"
+    
+    # Stop Apache service
+    systemctl stop apache2
+    echo "Stopped Apache service"
+fi
+
+# Check if UFW firewall configuration is restricting Nginx from binding to port 80
+if ufw status | grep -q "80/tcp"; then
+    echo "UFW firewall configuration is restricting Nginx from binding to port 80"
+    
+    # Allow incoming traffic on port 80
+    ufw allow 80/tcp
+    echo "Allowed incoming traffic on port 80"
+fi
