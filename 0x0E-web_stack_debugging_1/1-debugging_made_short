@@ -1,13 +1,4 @@
-<<<<<<< HEAD
 #!/usr/bin/env bash
 # script that configs server
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx start
-=======
-#!/usr/bin/env bash
-# configures a server to listening on port 80 of all servers active IPv4 IPs
-
-sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-sudo service nginx restart
-echo "" | sudo dd status=none of=/run/nginx.pid
->>>>>>> a7a578da065c643c848b960fb39e54ea15a6aa1b
