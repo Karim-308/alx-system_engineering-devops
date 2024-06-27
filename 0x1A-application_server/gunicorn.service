@@ -1,13 +1,12 @@
 [Unit]
-Description=Gunicorn instance for 2-hbnb.py
+Description=gunicorn nginx
 After=network.target
 
 [Service]
 User=ubuntu
-Group=www-data
-WorkingDirectory=/home/ubuntu/AirBnB_clone_v4/web_dynamic
-Environment="PATH=/usr/bin"
-ExecStart=/usr/bin/gunicorn --workers 3 --bind 0.0.0.0:5003 --error-logfile /tmp/airbnb-error.log --access-logfile /tmp/airbnb-access.log 2-hbnb:app
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v4/
+ExecStart=/home/ubuntu/.local/bin/gunicorn --workers 3 --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app >> /tmp/airbnb-access.log 2> /tmp/airbnb-error.log
 
 [Install]
 WantedBy=multi-user.target
